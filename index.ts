@@ -1,8 +1,8 @@
 // index.ts
 import express from 'express';
 import dotenv from 'dotenv';
-import insightRoutes from '../routes/insightRoutes';
-import procurementRoutes from '../routes/procurementRoutes';
+import insightRoutes from './routes/insightRoutes';
+import procurementRoutes from './routes/procurementRoutes';
 
 dotenv.config();
 

@@ -12,7 +12,7 @@ const pool = new Pool({
   port: Number(process.env.DATABASE_PORT),
 });
 
-export const db = drizzle<typeof insights & typeof procurements>(pool);
+export const db = drizzle(pool);
 
 export const getInsightData = async (params: PaginationParams): Promise<Insight[]> => {
   let data: Insight[] = await db.select().from(insights);
@@ -29,6 +29,6 @@ export const getProcurementData = async (params: PaginationParams): Promise<Proc
 };
 
 export const getInsightStatistics = async (): Promise<any> => {
-  // 示例统计数据查询逻辑
-  return await db.query(/* SQL 或 Drizzle 的聚合查询逻辑 */);
+  const result = await pool.query(`SELECT COUNT(*) AS count FROM insights`);
+  return result.rows[0].count; // 返回统计结果
 };

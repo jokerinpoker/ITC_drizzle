@@ -8,10 +8,15 @@ const seedData = async () => {
     { id: 2, name: 'Insight Example 2', value: 200 },
   ]);
 
-  await db.insert(procurements).values([
-    { id: 1, type: 'Type A', amount: 500 },
-    { id: 2, type: 'Type B', amount: 1000 }
-  ]);
+await db.insert(insights).values([
+  { name: 'Insight Example 1', value: 100 },
+  { name: 'Insight Example 2', value: 200 },
+]);
+
+await db.insert(procurements).values([
+  { type: 'Type A', amount: '500' },
+  { type: 'Type B', amount: '1000' }
+]);
 
   console.log('Database seeded successfully');
 };
